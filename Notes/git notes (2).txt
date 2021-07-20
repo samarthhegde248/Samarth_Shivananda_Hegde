@@ -1,0 +1,15 @@
+1) Create 3 branches Dev1, Dev2, Dev3 in master repository and create a file in each branch and merge it with master
+	-To create a branch run "git branch <branchname>" in the cloned repo
+	-to go to the branch/master run "git checkout <branchname/master>"
+	-Create files and save it then add it by running "git add ."
+	-then "git commit -m "done this changes""
+	-then "git push origin <branchname>"
+	-then check the status to know how commits you are ahead of (if it doesnt shows all your changes then go to your master by running "git checkout <master/origin>"
+	-then to merge all the changes run "git push origin master"
+
+2) Updating
+	- Redirect your directory to the local folder from which you want update from remote repo folder
+	-To get the update of changes made by others from the remote repo to local repo run "git fetch <remotename>"
+	-To merge the changes made by others in remote repo to local repo run "git merge <remotename/branchname>"
+	-Instead of running above 2 command we can use only 1 command which does the action of both by running "git pull <remotename> <branchname>" 
+	-If we run into a merge conflict that we cannot resolve, or if we decide to quit the merge, we can use "git merge --abort" to take the branch back to where it was in before you pulled.

@@ -1,0 +1,18 @@
+-> pip install virtualenv
+-> windows: python -m virtualenv buyemenv
+-> buyemenv\Scripts\activate
+
+-> If using sqlite3 create db.sqlite3 else Create DB in MySql with the name 'buyemdb'
+-> pip install -r requirements.txt
+-> If any installment fails then run to clear the cache		pip cache purge
+
+-> python manage.py makemigrations
+-> python manage.py migrate
+-> python manage.py runserver
+
+-> localhost:8000/
+-> admin: samarth	password: Admin@123
+
+
+-> leadtrackerenv\Scripts\deactivate
+

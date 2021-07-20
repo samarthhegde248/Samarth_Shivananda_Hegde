@@ -1,0 +1,8 @@
+-> Java and mvn needsto be installed and environment path to be set prior running this
+-> Create 'capstone' DB in database and keep MySQL up and running
+
+-> mvn clean install package
+-> go to target folder and run		java -jar Capstone-Backend-1.0-SNAPSHOT.jar
+
+-> mvn clean compile exec:java
+

@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+
+{% block headsec %}
+<style>
+            @media (min-width: 576px) {
+            .card-columns {
+                column-count: 1;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .card-columns {
+                column-count: 2;
+            }
+        }
+
+        @media (min-width: 992px) {
+            .card-columns {
+                column-count: 3;
+            }
+        }
+
+        @media (min-width: 1200px) {
+            .card-columns {
+                column-count: 4;
+            }
+        }
+</style>
+{% endblock %}
+
+{% block content %}
+    {% if object_list %}
+    <div class="container" style="box-sizing: border-box;">
+        <div class="card-columns" style="margin: 2% 0%;">
+            {% for i in object_list %}
+            <div class="card">
+                <img src="{{i.product_pic.url}}" class="card-img-top" alt="{{i.id}}">
+                    <div class="card-body">
+                        <h5 class="card-title">{{i.name}}</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">Price: {{i.cost}}</h6>
+                        <p class="card-text">Description: {{i.description}}</p>
+                        <p class="card-text">Category: {{i.category}}</p>
+                        <p class="card-text">Available items: {{i.no_of_item}}</p>
+                        {% if user.is_authenticated %}
+                        <a href="{% url 'payment' i.id %}" class="card-link">Buy Now</a>
+                        <a href="{% url 'addtocart' i.id %}" class="card-link">Add to cart</a>
+                        {% else %}
+                        <a href="{% url 'login' %}" class="card-link">Buy Now</a>
+                        <a href="{% url 'login' %}" class="card-link">Add to cart</a>
+                        {% endif %}
+                    </div>
+            </div>
+            <div style="clear: both;"></div>
+            {% endfor %}
+        </div>
+    </div>
+    {% else %}
+        <h2>No product items to show</h2>
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,171 @@
+django, flask,pyramid, webpy
+django is a frame work of webdevelopement for python
+getbootstrap.com for bootstrap
+advantages: open source, 
+	    default authorization,
+	    admin interface, 
+	    default developement server,
+	    DRY(Dont Repeat Yourself),
+	    supports multi-languages,
+	    default folder structure,
+	    supports all the database,
+	    has default database of sqlite,
+	    automatic creaton of tables like session, data,etc
+#installation set-up:
+	install python
+	pip install django
+	
+#Project and app
+project is a combinations of functionality
+app is defined as the functionality
+
+#Steps to django project
+	-change directory to the folder
+	-to create the project run #django-admin startproject proj_name
+	-dont edit manage file
+	-to check the project file is running on server and we will get ip address to run #python file_name.py runserver
+	-to stop the server ctrl+c
+#to connect it to other database othethan sqlite which is default we have to change in setting sqlite3 in database part as you required one like mysql, postgres, etc
+To create the the table for default django projects #python manage.py migrate
+to show all the tables #show tables;
+to create a super user or admin user #python manage.py createsuperuser
+
+creation app:- #python manage.py startapp app_name
+Flow of DJANGO project:- 
+
+To include urls from different app other than admin url use@ "include()"
+All the HTML files has to be kept under "templates" only if template folder is not there then create it
+for all the function or methods we have to use@ "request" as parameter
+httpresponse()
+to load the html file use @ render(request, 'file_name.html')
+Every app that we have created should be registered in 'INSTALLED_APPS' section of 'setting'
+The tables what ever we create is called models, all the models are python class itself
+Model creation in models.py :- 
+	from django.db import models
+	class tb_name(models.Model):
+		v_able1 = models.CharField(max_length = 25)
+		v_able2 = models.CharField(max_length = 25)
+		v_able3 = models.CharField(max_length = 10)
+		
+		def __str__(self):
+			return self.v_able1		//to display the details according to name or email etc that we want
+
+To convert the models into mysql quieries run #python manage.py makemigrations
+To see the quieries that gonna create table run #python manage.py sqlmigrate my_app 0001
+To commit the created table run #python manage.py migrate
+
+To see the created model in the admin interface we have to register the model in admin.py
+	from .model import model_name						//watch video
+	admin.site.register(model_name)
+
+To get the django shell run 
+			#python manage.py shell
+			#from my_app_folder.models import model_name
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ORM(Object Relation Mappers):-
+	1)create()
+	2)get()
+	3)filter()
+	4)all()
+	5)update()
+syntax to write ORM is  :	model_name.objects.functionname
+to run it django shell which will in folder where manage.py is there so we have import the model
+	#from my_app.models import model_name
+	#model_name.objects.all()		//to get all the things of model
+	#model_name.objects.get(id=)		//to get single detail use id/name/username but it should be unique values
+	#model_name.objects.create()		//to add the details
+	# v_able.save()	//if we use variable to add details into the model after assigning v_able=model_name(v_able1='', v_able2='') and also indexing can be applied at the end
+	#model_name.objects.filter(v_able='')
+	#model_name.objects.filter(vable__startswith='') 	//its called field lookup since checking for some condition like case senivity using __startswith
+	#model_name.objects.filter(vable__istartswith='')	
+	#model_name.objects.filter(vable__endswith='')	// similarly contain, <, >
+	#model_name.objects.filter(vable__startswith='').filter(vable__endswith='')	//nested filtering is possible or multiple parameter in signle filter is also possible
+	#model_name.update(v_able1='',)
+    to do above functions from python script:-
+	complex concept so watch class video
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+3 Types of forms:
+	1)ModelForms -- which will be auto generated using model name
+	2)Forms -- 
+	3)HtmlfOrm --
+ModelForm:- for the forms functionality create the forms.py file in my_app
+method in the form should be 'POST'
+{%csrf_token%} has to be given for the form in html file
+to redirect the form use # return redirect('name given in url path')
+Forms:-	
+HTMLforms:- this is the template defined maually with css
+
+for inbuilt bootstrap method we have to download crispyforms module -- pip install django-crispy-forms
+so after installing above module we have to add it in installed app of setting.py file of project -- 'crispy_forms'
+& we have to write CRISPY_TEMPLATE_PACK = 'bootstrap4'
+to load it to a html file	--	{% load crispy_forms_tags %}
+to get the bootstrap method in each and evry page we have to do template inheritance --	{% block content %}	{% endblock %}
+											{% include 'base.html' %}				//watch video
+
+form.as_p	//search and learn
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+2 types of views:	1)Funtion based views	//what we did in views.py using def
+			2)Class based views
+
+Class based views:-
+	-Create view
+	-Update view
+	-List view
+	-Delete view
+	-Detail view
+
+in urls path we have to give .as_view() for class based view
+use reverse_lazy() to redirect the page and import it from django.core.urlresolvers
+if we want pass the requires form use template_name='temp_name.html'
+
+detailview is used to get the information of perticular item in model
+
+Authentications, login:
+	from django.contrib.auth import authenticate, login, logout
+
+	'.is_authenticated' is a built in function used to check is the user loged in
+
+	set_password, make_password, is_active, is_superuser, is_staff
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Sending email functioality:
+	smtp - send mail transfer protocol
+
+ABSENT FOR ONE DAY ON 16/10/2019 message and admin interface
+from django.contrib import messages
+ 
+enctype="multipart/form-data"	#should use for uploading file in forms of html file
+for file we have use request.FILES
+
+_set.get.	#to get the item from froeign key model
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+REST API
+
+$pip list	#will give the installed pakages
+
+$pip install djangorestframework
+then we have to mention "rest_framework" in installed apps
+
+models.CASCADE, models.IGNORE #its better to use cascade for foreignkey
+
+HTTPs methods:	GET--for getting single or multiple data,
+		POST-- for sending the data,
+		PUT-- for updating the data,
+		DELETE-- for deleting the data.
+
+serializers
+
+#function based
+from rest_framework.decorator import api_view
+from .serializers import some_serialisers
+from rest_framework.response iimport Response
+@api_view(['GET','POST'])
+def hello_api(request):
+	if request.method=='POST':
+		ser = some_serializers(data=request.data)	#to get the posted data
+		if ser.is_valid():
+			return Response(ser.data)	#to return json data back
+
+#Class based
+In Class based again two type 1)APIView 2)viewsets
+

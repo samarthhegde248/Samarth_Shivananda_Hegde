@@ -1,0 +1,7 @@
+-> Keep the same folder structure
+-> pre-requisite: java
+
+-> java -jar target/Capstone-Backend-1.0-SNAPSHOT.jar
+
+-> username: insamzone@gmail.com	password: user@123
+-> username: roger@gmail.com		password: admin@123

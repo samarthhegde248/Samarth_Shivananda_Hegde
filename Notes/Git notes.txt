@@ -1,0 +1,35 @@
+github , gitlab, bitbucket, etc
+1)	- Download git and install it
+	- In the bash terminal type "git --version" to know the version of the git software that you are using.
+	- Then sign up at github.com
+	- Create a new repository and click on README and commit changes button
+		Note: git is a local repository & github is a remote repository so everytime while coding get it from remote repo to local repo and then make changes so that your teammates gets hold of the changes.
+	- copy the link of your repo from github
+	- create a folder in your system
+	- open the cmd and redirect it to your folder and then run "git clone /*your copied link*/"
+	- download the visual studio code and install it (if you install it in some other folder than set the path in Environment Variable)
+	- Create index and abc.html and open terminal in visual studio code there and run "git init" then "git status" & "git add /*filenames with space and extension*/" and "git status"
+
+2)	- git add . (to add all the file)	
+	- git add abc.html index.html
+	-git commit -m "added abc.html index.html"
+	First time it will give you error asking for the identity
+	-then run "git config --global user.email "you@example.com"" & "git config --global user.name "Your Name""
+	- git commit -m "added abc.html index.html" 
+
+	- git push origin master (Give the correct credentials of your github account)
+
+3) to change git account local (class)
+	git config --global user.email "enter your email"
+	git config --global user.username "enter your username"
+	git remote add origin http://link.github.com.git
+	git push -u origin master
+
+   to git changes testing
+	#git diff
+	
+   to discard the last few commits we have to first get the id of the commit untill it has to be there and
+	#git revert	//search web
+
+   to pull #git pull origin master
+   

@@ -1,0 +1,18 @@
+---
+# tasks file for tomcat-ansible-role
+
+- name: Install tomcat
+  include: install.yml
+  when: tomcat_state == "present"
+
+- name: Configure tomcat
+  include: configure.yml
+  when: tomcat_state == "present"
+
+- name: Uninstall tomcat
+  include: uninstall.yml
+  when: tomcat_state == "absent"
+
+- name: Copy war file
+  copy: src="/home/sam/ansible-handson/roles/newrole/files/NewApp.war" dest="{{ tomcat_install_path }}/apache-tomcat-{{ tomcat_version }}/webapps/NewApp.war"
+  when: tomcat_state == "present"

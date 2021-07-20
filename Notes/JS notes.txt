@@ -1,0 +1,101 @@
+mdn javascript website is good for javascript, oops
+regex101.com
+jsonplaceholder
+chartjs	(for charts)
+SVG icons
+jsbasic.html main.js file
+1) its better to write javascript before closing body tag
+	// - single line commenting, /* */ - multiline commenting
+  o/p:	console.log(), alert(), document.write(), console.table()
+  i/p: prompt()
+  variable - var , let, const
+  primitive datatype : string, numbers, boolean, null, undefined
+  complex datatype : function, object
+  typeof(array) is an object only, typeof(null) is an object, typeof(Infinity) is a number
+  typeof()
+
+2) 'use strict'
+   Arrow function(=>)
+
+3) str.length
+   toUpperCase(), toLowerCase(), trim(),
+   indexOf(), lastIndexOf(), search(),
+   replace(), replace(/dummy/g, test),
+   substring(ind, nextind), substr(ind, len), slice(ind, +/-ind/len)
+   parseInt(), parseFloat(), toString(),
+   Math.round, Math.ceil, Math.floor, Math.random
+   delete
+   push, unshift, pop, shift --adding and removing values to the array
+   splice(startind, endind)
+
+   JSON :- 
+   looping :- for, forEach, while, forin
+(js2.html)
+   for(var i=0; i< n; i++) / for(var i in emp)
+   emp.forEach(function(value,index,array)){ value.}
+   
+   document.getElementsByTagName, document.getElementById, document.getElementByClassName, document.querySelector, document.querySelectorAll
+   innerText -- get/ set,    innerHTML -- get/ set
+(dom1.html)
+   .addEventListner('click',function,false)
+   capturing and bubling
+   .setAttribute('name','value'), .removeAttribute('attribute')
+(createDom.html)
+   .appendChild(), .removeChild()
+   .createElement()
+(styleJs.html )
+   .style.prop = ' '
+(formTemp.html)
+   this.parentNode.parentNode.children
+	JSON.stringify, JSON.parse
+	localStorage, sessionStorage
+	.rowIndex;
+	regular expressions (google search)
+	reg_ex.match(variable)
+	reg_ex.test(variable)	//match condition of email,phone, etc
+(gallery.html, oops.html, constructor.html)
+	.prototype
+	.call , .apply, .bind
+(ajax.html)
+	new XMLHttpRequest()
+	.onreadystatechange
+	this.status, this.readyState, this.responseText
+	.open('methods', 'URL', async)	//methods = GET, POST, etc	async=true sync=false
+	.send()
+
+	when we use 'this' keyword we will be able to get status, state, etc details if we console.log
+	status = 200 , 404, 301
+	onreadystate = 4
+	for <a> if we use href'javascript:void(0)'   it will not go to any other page
+	document.querySelector('tag_name')
+	
+(html5.html)
+	main, header, article, section, nav, figure, aside, figcaption, footer
+	<video autoplay controls muted loop> <source src='' type='video/mp4'> </video>
+	<audio autoplay controls muted><source src='' type='audio/mp3'> </audio>
+
+(flex.html)
+	.pause(), .paused, .muted
+	input types: range, color, search, etc
+
+(canvas.html)
+	canvas is an API
+	its kind of image not page when you try to save it, it stores as image
+	.getContext('2d')
+	.fillRect(x,y,w,h) , .fillStyle = ''red' , .fill() , .beginPath() , .moveTo(x,y) , .lineTo(x,y) , .stroke() , .closePath() , .clearRect(x,y,w,h),
+	.arc(x,y,r,start,deg,clk/aclk)
+
+(flexBasics.html)
+	display : flex;	<!-- should given to parent only --!>
+	flex-direction: column;	//row,etc
+	flex-wrap : wrap;
+	justify-content : flex-end;	//center, space-around, space-between
+	allign-items : center;
+	allign-content : center;
+	order : -1;	//on child element
+	flex-grow : 3;	//on child
+
+(flexanMedia.html)
+	@media screen and (min-width: 1024px){
+		body{	background: blue;	}
+	}

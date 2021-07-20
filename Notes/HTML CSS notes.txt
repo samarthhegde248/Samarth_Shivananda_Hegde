@@ -1,0 +1,97 @@
+1)	HTML is a markup language used to create only the skeleton of the web page & used for representation of data contents using tags.
+
+HTML structure:
+
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<!-- 	title
+			Tags
+			links of js, css
+			javascripts
+			CSS
+			favicon
+			metadata	-->
+
+
+	<head/>
+	<body>
+		<!--	heading 
+			paragraph	-->
+
+	<body/>
+
+
+<html/>
+
+2)	Block elements are the elements which occupies the full width of a page like h1-h6,p,div,li,table,ol,ul,etc
+	inline elements are the elements which occupies only the width of contents like anchor, em, i, strong, span,etc
+	
+3)To create a layouts side by side and to avoid overlapping we have to use clearpath technique
+	In this technique we have to use extra div element with attribute style=" clear = left, right or both anyone"
+
+  To wrap every element within the expected size we use style property
+	box-sizing = "border-box"
+
+4) To convert inline or block element into block or inline element respectivly we use
+	display: inline; /*inline, block,inline-block, flex, none*/
+   To work on ul element to remove bullet or dot
+	list-style-type: none; 
+   To stop the image repeating
+   	background-repeat: no-repeat;
+	Background-position: center top; /*to control the portion of image*/
+	background-attachment: fixed; /*to fix the image even page is scrolled*/
+	background-size: cover; or contain /*to maintain the aspect ratio*/
+	#4ab996
+
+5) selectors like space, > , +, ~ in applying css property
+   psuedo	div:before{ content: "any content to appear in html"}  we can use : / :: 
+		div:after{ content: "any content to appear in html"}
+		div::selection{ color: red; background: black;}
+		div::first-letter{font-size: ; font-style: ; font-weight: ;}
+		div::first-line{	}
+		a:link{	}
+		a:visited{	}
+		a:hover{	}
+		a:active{	}
+	first-child and last-child and nth-child selectors
+
+6) positions :	static, relative, fixed, absolute, sticky
+   z-index
+   opacity
+   visibility
+
+7) sprite , tooltip, font awsome icons, svg icons,
+8) mediaquir.es , dribble
+9) jsbin, codepen -- online coding
+10) form elements
+11) firebase hosting, caniuse.com (to know which browser support css3 add the prefix to be used),
+    CSS3 concepts : outline, border-radius, transition, transition-timing-function(ease, cubic-bezier), letter-spacing, transform( scale(1.5,1.5),rotate(1turn or 45deg),translate(50px,0px), skew(45deg) ),
+			rotateX(),rotateY(), transition-origin,
+12) Font Css3:	ttf/otf(true type fonts/open type fonts) use fontsquirel.com
+	Style{
+		@fonts{
+			font-family:"Lato-Regular" ;
+			src: url()
+			}
+		*{font-family: Lato-Regular; }
+	}
+13) 3D (rwd.html) :-
+	 backface-visibility: hidden
+	 transform-style: preserve-3d
+	 transform-origin
+	 perspective
+	 perspective-origin
+    Animations :-
+	 animation-name: exmpl;
+	 animation-duration
+	 animation-iteration-count
+	 animation-direction
+	 animation-timing-function
+	 animation-play-state
+	 
+	@keyframes exmpl {
+	from{ }
+	to{ }
+	 }

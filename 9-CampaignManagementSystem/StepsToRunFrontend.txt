@@ -1,0 +1,10 @@
+-> Node or npm package installer to be installed prior to run this
+-> cd Project/capstone-frontend/
+-> npm install
+-> npm fund
+-> npm audit fix
+-> npm start
+
+
+-> ng serve
+-> ng build

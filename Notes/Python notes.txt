@@ -1,0 +1,395 @@
+Memory allocation inside a system is called as a variable.
+    5 Rules for variable declarartion:
+	-It can be alphanumeric
+	-Cannot start with number
+	-No special characters except underscore
+	-Underscore can be taken as variable
+	-Keywords cannot be used
+
+Latest Python version contains 35 keywords
+    To display all the keywords run
+		import keyword
+		print(keyword.kwlist)
+
+Operators are the symbol which performs oprations on the operands
+     Different types of operators are:
+	1)Arithmetic operators ( + - / * % // ** )
+	2)Logical operators (and or not)
+	3)Assignment operators ( = += -= *= )
+	4)Bitwise operators ( & | ^ << >> )
+	5)Relational or Comoparisional operators ( < > <= >= == != )
+	6)Ternary operators ( [on_true] if [expression] else [on_false]  )
+	7)Membership operators ( in, not in )
+	8)Identity operators ( is, not is )   it will check whether both are in same memory location or not
+
+6 Different data types are:
+	1)Numbers (integers, floating, complex)
+	2)String
+	3)Lists
+	4)Tuples
+	5)Dictonaries
+	6)Sets
+
+Conditional statements( if, if elif else, if else, nested if) #switch statement is not there in python
+
+debugging module "ipdb" or "pdb"
+
+Looping statements (while, for)
+
+6 data types are divided into 2 type in python:
+	1)mutable data types (list, dictionary,set)
+	2)immutable data types (number,string, tuple)
+
+2 basic operations used for string:
+	1)concatenation(+)
+	2)Repetition(*)
+
+Different methods of string: dir(Str) will give all the internal inbuilt functionalities
+	startswith, endswith, isalpha, isalnum, isdigit, title, capitalize, swapcase, index, find, islower, isupper, lower, upper,
+	split, strip, rstrip, lstrip, replace,
+	zfill, count, len
+
+output format:
+	"{}".format( )
+
+Different methods used on lists: (concatenation(+), repetition(*))
+	append(one element at a time that to last), extend(sequence is added), insert(index,element)
+	remove(element), del(element), pop(index), clear(empty the list)
+	count(element that you want to check for repition), index(element), sort, reverse, copy, len, sorted(), sorted(list, key=len, reverse=True)
+
+List comprehenssions : syntax:	[expression for element in sequence]
+
+Dictionary : 
+	accessing : dic_name[key] or dic_name.get(key)
+	methods : get(key), update(dictionary), pop(key), popitem(), clear, keys(), values(), items(), fromkeys(sequence), 
+dictionary comprehension : syntax : { expression for element in sequence }
+
+Sets: are unordered data types
+	methods:	add(element), update(sequences), remove(element), discard(element)
+	operations: union(|), intersection(&), difference(-), Symmetric_Difference(^)
+			intersection_update, difference_update, Symmetric_Difference_update,
+			issubst(), issuperset()
+	frozenset(sequence) - immutable sets
+
+
+<-----------------------------------------FUNCTIONS-------------------------------------------------------------------------------->
+	use of functions is the code reusability
+	keyword : def
+	syntax :	def func_name():
+				statements
+
+Passing the arguments :
+	1)Positional arguments	: sample(32, 48)
+	2)keyword arguments	: sample(a=32, b=48)
+	3)Default arguments	: def sample(name, city='hyderabad')
+	4)Arbitrary positional arguments	: def sample(*args)		args will be tuple
+						sample(1,2,3,4,5,...)
+	5)Arbitrary keyword arguments	: def sample(**kwargs)			kwargs will be dictionary
+					sample(a=1, b=2, c=3....)
+
+return statement:	return
+recurssion:
+	
+<-----------------------------------------------------Anonymous functions------------------------------------------------------------->
+Functions which doesnt have any name is called as annonymous function or lambda functions.
+	Syntax:	lambda arguments : expression 
+	ex: (lambda a : a*5)(6) gives 30 as output
+ map :	map( lambda a : a*3 , a)
+ filter : filter( lambda a: a%2==0,a)
+ reduce : reduce( lambda a,b: a+b,a ) to use reduce we have import it. from functools import reduce
+
+<----------------------------------------------------MODULES------------------------------------------------------------------------>
+USER DEFINED
+	import
+	from import *
+ if the module is in different folder
+	import sys
+	print(sys.path)
+	sys.path.append('location')
+
+IN-BUILT MODULES
+  print(help('modules'))   to know the available modules
+
+	import random as rm
+	{ rm.random(), rm.randint(x,y), rm.randrange(x,y,h), rm.choice(sequence), rm.shuffle(list)  }
+	import os
+	{  os.getcwd(), os.chdir('path/'), os.listdir('.'), os.mkdir('single_folder'), os.rmdir('single_folder'), os.makedirs('folder1/folder2/'), 
+	   os.removedirs('folder1/folder2/')  }
+	import calendar as cl
+	{  cl.firstweekday(), cl.day_name[index], cl.isleap(year), cl.month(year, month), cl.calendar(year), cl.weekday(year,month,day)  }
+	import urllib.request as ul
+	{  ul.urlopen('link')  }
+	import beautifulsoup as bs   (scrappy is also used)
+
+
+<---------------------------------------------------PACKAGES------------------------------------------------------------------------------>
+In 2.x version in every folder which we want to convert it as package we have to create __init__.py file
+In 3.x it is automatically done.
+(if the folders are in the same location as the main python file)
+for the 1st time when the main programe runs then only 3.x version will create __pycache__ in folder and convert it automatically as packages
+syntax:-	from folder_name import module_name
+		from folder_name1.folder_name2 import module_name
+
+<--------------------------------------------------FILE OPERATIONS--------------------------------------------------------------------------------->
+Opening the file:- 2 ways
+	1) open('')
+	2) with open('') as variable_name :
+modes :- read -- 'r'
+	 write -- 'w'
+	 append -- 'a'
+closing of file:- .close()
+Reading function:- read(), readline(), readlines() ------- (only for .txt and .py file)
+writing function:- write(), writelines(list)
+modules to open other format :- 
+	csv(comma seperated values): import csv
+				     with open('filename.csv','r/w/a',newline='') as file:
+				     	rd = csv.reader(file), wr = csv.writer(file)
+					wr.writerow(list)
+	openpyxl(excel file):	check next section
+<---------------------------------------------------------Virtual env--------------------------------------------------------------------------------->
+
+virtual environment:- creating environment for perticular project
+			pip install virtualenv
+		      redirect to the folder where you want to create a virtual environment the run
+			virtualenv env_name
+		      to activate the virtual environment
+			cd env_name\Scripts\activate
+			pip list  (will give all the installed modules in that environment)
+		      to stop the virtual environment
+			deactivate
+pip install -r requirement.txt	// requirement.txt contains all the packages to be used
+
+<-------------------------------------------------------Database-------------------------------------------------------------------------------------->
+2 types of databases :  -structured (sequel) database (mysql,sqlite, postgres, oracle)
+			-unstructured (no sequel) database (mongoDB,Googleappengine)
+
+connectors which will connect python with database: 
+							mysql -- pymysql,mysqlclient, MySQLdb
+							sqlite -- sqlite3(default with installation of python)
+							postgres -- psycopg2
+							mongodb -- pymongo
+							oracle -- oracle
+tools: mysql or xampp
+
+setup of xampp:
+install xampp and open xamp control panel
+since its a third party software we have to start the server every time we want
+
+mysql -u root -p
+
+show databases;
+
+\q   (to quit)
+
+to show all the databases run #show databases;
+to create new database run #create database db_name
+to connect/open to created database run #use db_name
+to create the table with columns in the database run #create table tb_name(v_able1 varchar(length), v_able2 varchar(length));
+to get the description of table run #desc tb_name
+to insert the data into table run #insert into tb_name values('v_able1_data',v_able2_data')
+to show the data of table run #select * from tb_name
+to get the perticular column of table run #select v_able1 from tb_name
+to update the data which is already in the database run #update tb_name set v_able2="v_able_data" where v_able2="v_able2_data"
+to delete the data from the table run #delete from tb_name where v_able1="v_able1_data"
+to clear the whole table run #truncate tb_name
+to delete the table inside the database run #drop table tb_name
+to delete the whole database run #drop database db_name
+
+in sql int can take max 2147483647 value
+
+The connector used to connect python script and the database is pymysql (to install run #pip install pymysql)
+						<-----------python----------->
+	import pymysql as pq
+	conn = pq.connect(user='root',password='root',host='localhost')	//to connect it to the server
+	conn = pq.connect(user='root',password='root',host='localhost' database='db_name')	//to connect it to the perticular database
+	print(conn)
+	cr = conn.cursor()	//to create the cursor and cursor has to be created to run quieries
+	cr.execute("database quieries goes here")	//to run quieries
+	cr.execute("select * from tb_name")	//gives the count of data
+	print(cr.fetchall())	//gives all the data in tuple format also we can use indexing at the end
+	print(cr.fetchone())	//gives only the starting first data or the next data from where the cursor is
+	conn.commit()	//to commit the data 
+	conn.close()	//to close the connection and at the end coonection has to be closed
+
+<-----------------------------------------------------------------------git/excel-------------------------------------------------------------->
+git is called as code version controller
+   to change git account local (class)
+	git config --global user.email "enter your email"
+	git config --global user.username "enter your username"
+	git remote add origin http://link.github.com.git
+	git push -u origin master
+
+   to git changes testing
+	#git diff
+	
+   to discard the last few commits we have to first get the id of the commit untill it has to be there and
+	#git revert	//search web
+
+   to pull #git pull origin master
+
+Excel :- for opertion on excel we should have openpyxl package	#pip install optnpyxl
+	import openpyxl as exl
+//reading
+	wb = exl.load_workbook('file.xlsx')	//to load the excel file
+	print(wb.get_sheet_names())	// will give list of sheets in xlsx file
+	print(wb.get_active_sheet())	//to get the active working sheet
+	sheet = wb.get_sheet_by_name('sheet_name') //to get the perticular sheet
+	print(sheet.title)	//to get title
+	print(sheet.cell(row= , column= ).value)	//to get the value of perticular cell
+	print(sheet['C1'].vlaue)	//same as above line
+	print(sheet.max_column)	//to get the no. of colums
+	print(sheet.max_row)	//to get the no. of rows
+	wb.save('file.xlsx')	//To save the changes
+//writing
+	wb = exl.Workbook()
+	wb.save("data.xlsx")	//to vreate the data excel file
+	sheet = wb.get_active_sheet()
+	sheet.append('name','name','email')
+	wb.save('file.xlsx')	//To save the changes
+	wb.create_sheet('sheet_name')
+<-------------------------------------------------------------------------OOPS---------------------------------------------------------------------------------------------->
+30 Sep 2019
+	1)Class -- Blueprint of an object
+	2)Object -- Instance of a class(variable), which has permission to access everything inside that class
+syntax:
+	class Class_name:
+		statements
+		functions
+
+Class attributes -- the variables/attributes are accesed using class name
+Instance attributes -- the variables/attributes are accesed using only object name
+
+Instance methods -- the functions defined inside the class are called instance methods
+
+drawback of using classname for accessing the attribute :- we cannot access the methods/functions defined inside the class with classname instead we have to use object
+
+Different types of attributes:
+	1)Class attribute
+	2)Instance attributes
+
+Initialization or Constructor:
+	def __init__(self):	-- constructors(magic/special methods)
+
+OOPs methods:-	1)Instance methods	-- which has 'self' as defualt argument and can only be accessed with the object name
+		2)Class methods	-- which has 'cls' as default argument and can be called with class or object name and '@classmethod' decorator should be called externally to load it
+		3)Static method	--  and '@staticmethod' decorator should be called externally to load it
+
+Inheritance :-	single, mutilevel, multiple, hybrid, heirarchial inheritance
+	syntax:	class A (B, C):
+
+Polymorphism:-	
+	1)Method overriding	-- common inhertence of methods
+	2)Method overloading	-- based on number of argument parameter passed in function defination
+
+
+Datahiding :-
+	1) Private --	__variablename
+		these are the variable that can only be accessed within the that class where it is declared
+		if we want to access that variable outside the class then we have to use --	obj._classname__variablename
+		to access the private methods outside the class then we have to go with --	obj._classname__methodname()
+	2) Protected -- _variablename	//please go through internet
+
+<--------------------------------------------------------------------Exceptions and error handling--------------------------------------------------------------------------->
+error handling is also called as exception handling
+	try	-- contains the lines of code which may give you an error
+	except	-- action code to execute if error occured, if we want to handle multiple type of error mention perticular type of errors in except(,)
+	finally	-- whatever the situations it will execute(both when error occurs and not occurs)
+	else	-- its similar to finally but it executes only when no error has occured
+
+import sys and use sys.exc_info() to get the type of error
+
+1)inbuilt exception
+2)user defined exceptions
+
+user defined exceptions:-
+	it has to be class
+	syntx:-
+		//defining the error
+		class NameOfError(Exception):
+			pass	//or condition for exception
+
+		//calling or raising an error
+		raise NameOfError
+<-----------------------------------------------------------------Regex--------------------------------------------------------------------------------------------------------->
+module to import is	import re
+Regex are the advanced functionalities of string
+regex is performed only on strings
+Basic operations of regular expressions are:	match(regex_pattern, str_var), search(regex_pattern, str_var), findall(regex_pattern, str_var)
+match will only do the operation at starting of the string and returns the object
+if we dont want the object but we want the number than we have to use '.group()' 
+search will get the pattern which it finds first at any location interms as an object
+findall will get all the pattern present and give us as list
+/d -- digits
+/w -- alphanumeric
+{} -- specifying length
+
+for ex:- a= '673 894-6473'
+	 pat = r'\d{3} \d{3}-\d{4}'
+	 out = re.match(pat,a)
+	 print(out)	#gives the object and span of string if present
+	 print(out.group())	#returns the pattern found
+<---------------------------------------------------------------------------multi threading-------------------------------------------------------------------------------------->
+multithreding is nothing but working with two process and reducing load time 
+thread is light weight process
+
+import threading as thd
+
+to know the execution time we have take the time before and after the process execution and subtract it
+we have module 'import time'
+time.time()	#to get the time
+time.sleep(1)	#to send it to sleep mode for 1 sec
+
+thread1 = thd.Thread(target= func_name, args= (func_parameters,) )	#to create the thread and args should be in tuple format only
+thread1.start()	#to start the thread
+thread1.join()	#to run this thread when the other proceess is in sleep mode
+
+execution is little tricky be carefull
+
+<--------------------------------------------------------------------------GUI Development----------------------------------------------------------------------------------------->
+tkinter, pyqt, kivy(for android & its under development) these are some of GUI app
+tkinter is the inbuilts gui framework for python
+
+from tkinter import *
+import tkinter
+
+data = tkinter.Tk()	#to start the tkinter frame work after this only other code has to written
+
+data.geometry('400x300')	#to define  the window at start
+data.resizable(0,0)	#to define the resizable dimension fo window
+data.title("Name of the window") 	#title of window
+
+d1 = StringVar()
+val = ""
+def btn_isclicked():
+	global val
+	val+=""
+	d1.set(val)
+
+lbl = Label(data, text="Label", anchor=SE)	#for displaying the data from south east direction
+lbl.pack(expand=True, fill="both")
+
+
+frame1= Frame(data, bg='blue')	#defination to create the frame i.e divide the whole window into sections for buttons, etc
+frame1.pack(expand=True, fill='both')
+
+btn1 = Button(frame1,text='1', font=('Verdana',22), relief=GROOVE, border=0)	#to create the button in perticular frame and of same size
+bt1.pack(side=LEFT, expand=True, fill='both')
+
+data.mainloop()	#this is the end of the started framework window
+
+<--------------------------------------------------------------------------Socket programming---------------------------------------------------------------------------------------------->
+import socket
+client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)	#to create the socket of IPv4
+client.bind((socket.gethostname(),1234))	# to bind the ip address with port
+
+
+ser.listen(5)
+ser.send()
+while True:
+	sc1, ip_add = ser.accept()
+	sc1.send(bytes("im sending from server","utf-8"))
+	sc1.close()
+<----------------------------------------------------------------------------operator overloading-------------------------------------------------------------------------------------------->
+print(3+4) #gives 7
+
+print(int.__add__(3,4))	#gives 7

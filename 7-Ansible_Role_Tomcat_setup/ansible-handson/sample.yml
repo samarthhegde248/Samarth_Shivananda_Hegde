@@ -1,0 +1,16 @@
+- hosts: localhost
+  become: yes
+  vars:
+    tomcat_version: 8.5.23
+
+    tomcat_permissions_production: True
+
+    tomcat_users:
+      - username: "tomcat"
+        password: "toor@123"
+        roles: "tomcat,admin,manager,manager-gui"
+      - username: "exampleuser"
+        password: "usr@123"
+        roles: "tomcat"
+  roles:
+    - role: newrole

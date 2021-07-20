@@ -1,0 +1,27 @@
+google collab is used as cloud platform to run python codes
+javatpoint django 
+ngrock, hiroku for deploying app it will be there for 7 hrs
+venkatasai803@gmail.com
+
+pip install -r requirement.txt	// requirement.txt contains all the packages to be used
+
+python -m venv venv_name
+python -m pip install django
+python -m pip install djangorestframework
+in installe dapps "rest_framework"
+serializers.py
+
+
+serializers.ModelSerializer	srializers.HyperLinkedModelSerializer
+crud operations are called as httpverbs
+ViewSets class in view
+routers in url and register the viewsets and add path
+
+genric view, api view, model view
+
+EMAIL_PORT = 587	#Is the port for mail communication
+
+contact form template	-> colorlib.com
+
+sending email using send grid by JUST DJANGO
+
