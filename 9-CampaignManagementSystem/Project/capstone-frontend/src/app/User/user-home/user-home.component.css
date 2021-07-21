@@ -1,0 +1,12 @@
+.logout {
+    text-align: right;
+}
+
+.form-list {
+    border: 1px solid lightgrey;
+    border-radius: 5px;
+}
+
+hr {
+    border-top: 2px solid lightgrey;
+}

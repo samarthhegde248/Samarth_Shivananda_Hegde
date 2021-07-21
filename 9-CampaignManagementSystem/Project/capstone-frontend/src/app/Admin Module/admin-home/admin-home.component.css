@@ -1,0 +1,67 @@
+.logout {
+    text-align: right;
+}
+
+.admin-a {
+    /* color: rgb(63, 63, 63) !important; */
+    margin-top: 10px;
+    margin-bottom: 10px;
+    text-align: right;
+}
+
+.my-card {
+    padding: 0 !important;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.my-body {
+    background-image: url("background-tech-background.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/* .logout a{
+    color: #2f2f2f;
+}
+
+.logout a:hover{
+    color: #afafaf;
+} */
+.col {
+    border: 1px solid black;
+}
+
+.table-heading{
+    text-align: center;
+}
+
+.right-col{
+    margin-left: 1px solid gray;
+}
+
+.left-col {
+    text-align: center;
+    border-right: 2px solid lightgrey;
+}
+
+.home {
+    color: black;
+    font-size: 24px;
+}
+
+.home:hover {
+    text-decoration: none;
+}
+
+@media (min-width:575px){
+    .row-height{
+        height: 100%;
+    }
+}
+
+@media(max-width: 575px){
+    .left-col {
+        padding: 5px !important;
+    }
+}

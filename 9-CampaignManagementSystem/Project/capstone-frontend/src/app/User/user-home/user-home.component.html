@@ -1,0 +1,13 @@
+<div class="container mt-3">
+  <div class="logout">
+    <a class="btn btn-sm btn-dark" routerLink="/logout">Logout</a>
+  </div>
+  <hr>
+  <div class="form-list m-5 p-2">
+    <h4>Survey Lists</h4>
+    <div *ngFor="let item of listOfSurvey; index as i" class="px-2">
+      {{i+1}}. <a href="/survey/{{item.form_id}}">{{item.form_title}}</a>
+    </div>
+  </div>
+  
+</div>

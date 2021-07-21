@@ -1,0 +1,29 @@
+<h2>{{ jsonData.surveyTitle}} </h2>
+<div [hidden]="submitted">
+<form [formGroup]="userForm" class="jumbotron m-3" (ngSubmit)="onSubmit()">
+  <div class="form-group" *ngFor="let data of jsonData.surveyQuestions; let i = index;">
+      <label for=Que{{i}}>Q{{i+1}}. {{data.Text}} <span class="que-required">*</span></label>
+      <div *ngIf = "data.Type == 'text'">
+          <input formControlName="Que{{i}}" type= {{data.Type}} name="Que{{i}}" id="Que{{i}}" required>
+      </div>
+      <div *ngIf = "data.Type == 'textarea'">
+        <textarea formControlName="Que{{i}}"  name="Que{{i}}" id="Que{{i}}" rows="4" cols="50" required></textarea>
+      </div>
+      <div *ngIf = "data.Type == 'radio'">
+        <div *ngFor="let d of data.options; let j = index;">
+          <input formControlName="Que{{i}}" type="{{data.Type}}" name="Que{{i}}" id="Que{{j}}" value="{{d.OptionText}}" required/>
+          <label for="Que{{j}}">{{d.OptionText}}</label>
+        </div> 
+      </div>
+      
+      <div *ngIf = "data.Type == 'checkbox'">
+        <div *ngFor="let d of data.options; let j = index;">
+          <input (change)="onChange(d.OptionText, $event.target)" type="{{data.Type}}" name="Que{{i}}" id="Que{{j}}" value="{{d.optionText}}" required/>
+          <label for="Que{{i}}">{{d.OptionText}}</label>
+        </div> 
+      </div>
+  </div>
+  <button type="submit" [disabled]="userForm.invalid" class="btn btn-primary">Submit</button>
+</form>
+</div>
+<div [hidden]="!submitted">You submitted the form.</div>

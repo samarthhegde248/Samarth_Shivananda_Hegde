@@ -1,0 +1,33 @@
+/* .login-name {
+    text-align: right;
+} */
+.login-text{
+    color: white;
+}
+
+.my-login {
+    background-image: url("1.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+hr {
+    border-top: 2px solid white;
+}
+.login-module{
+    /* margin: 3rem; */
+    margin: 0 auto !important;
+    text-align: center;
+    border: 3px solid  lightgrey;
+    border-radius: 25px;
+    background-color: rgba(243, 243, 243, 0.2);
+}
+
+input {
+    border-radius: 20px;
+    color:grey;
+}
+
+.login-btn{
+    color: black;
+}

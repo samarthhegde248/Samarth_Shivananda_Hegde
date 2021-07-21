@@ -1,0 +1,58 @@
+<div class="container-fluid first px-5">
+    <a href="/admin" class="float-left mt-3 ml-4 home"> Survey Management</a>
+    <button class="btn btn-sm btn-dark float-right mt-3" (click)="navigateBack()">Back</button>
+  </div>
+
+<div class="container">
+    <!-- <div>
+        <a href="/admin" class="float-left mt-2">Campaign Management</a>
+    </div>
+    <div class="back-btn">
+        <button class="btn btn-sm btn-dark" (click)="navigateBack()">Back</button>
+    </div> -->
+
+    <!-- <div *ngFor="let item of listOfSurvey;">
+        <a class="item-details" href="/survey/{{item.id}}">{{item.form_title}}</a>
+        <a class="item-details" (click)="PublishSurvey(item.id)">Publish</a>
+        <a class="item-details" (click)="deleteSurvey(item.form_id)">Delete</a>
+        <hr>
+    </div> -->
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Survey Name</th>
+                <!-- <th scope="col">Email</th> -->
+                <th scope="col">Survey Status</th>
+                <th scope="col">Update Survey</th>
+            </tr>
+        </thead>
+        <!-- <input class="input-text" type="text" name="email" id="email" [(ngModel)]="email"> -->
+        <tbody>
+            
+            <tr scope="row" *ngFor="let item of listOfSurvey;">
+                <th><p class="item-details">{{item.form_title}}</p></th>
+                <th *ngIf="(item.available == false) && ((item.end_date | date:'MM/dd/yyyy') < (todayDate | date:'MM/dd/yyyy')); else elsePart">
+                    <p class="item-details">Expired</p>
+                </th>
+                <ng-template #elsePart >
+                    <th *ngIf="item.available == false">
+                        <button class="btn btn-sm btn-warning item-details" (click)="PublishSurvey(item.id)">Publish</button>
+                    </th>
+                </ng-template>
+                
+                <th *ngIf="item.available == true"><p class="item-details published">Published</p></th>
+
+                <th *ngIf="(item.available == false) && ((item.end_date | date: 'MM/dd/yyyy') > (todayDate | date: 'MM/dd/yyyy'))">
+                    <a class="btn btn-sm btn-info item-details" [routerLink]="['/editform/',item.id]">Edit</a>
+                </th>
+                <!-- <ng-template #deletePart> -->
+                    <th *ngIf="(item.end_date | date:'MM/dd/yyyy') < (todayDate | date:'MM/dd/yyyy')">
+                        <button class="btn btn-sm btn-danger item-details" (click)="deleteSurvey(item.id)">Delete</button>
+                    </th>
+                <!-- </ng-template> -->
+                
+            </tr>
+        </tbody> 
+    </table>
+</div>
+

@@ -1,0 +1,58 @@
+<div class="container mt-3">
+    <h3>Registration</h3>
+    <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+        <div class="row">
+
+                <div class="col-md-2 col-4 login-name">
+                    <label for="firstname">Firstname: </label>
+                </div>
+                <div class="col-md-4 col-6">
+                    <input formControlName="firstname" id="firstname" type="text" [required]="true">
+                </div>
+
+            <div class="col-md-5"> </div>
+
+                <div class="col-md-2 col-4 login-name">
+                    <label for="lastname">Lastname: </label>
+                </div>
+                <div class="col-md-4 col-6">
+                    <input formControlName="lastname" id="lastname" type="text" [required]="true">
+                </div>
+
+            <div class="col-md-5"> </div>
+
+                <div class="col-md-2 col-4 login-name">
+                    <label for="email">Email: </label>
+                </div>
+                <div class="col-md-4 col-6">
+                    <input formControlName="email" id="email" type="email" placeholder="abc@xyz.com" [required]="true">
+                    <div *ngIf = "checkEmail">
+                        <p class="p-text">Email is already registered</p>
+                    </div>
+                    <p class="text-danger" *ngIf="this.registrationForm.controls.email.errors?.pattern">Enter valid email</p>
+                    <!-- <p *ngIf="this.registrationForm.controls.email.dirty">Test</p> -->
+                </div>
+
+            <div class="col-md-5"> </div>
+                <div class="col-md-2 col-4 login-name">
+                    <label for="password">Password: </label>
+                </div>
+                <div class="col-md-4 col-6">
+                    <input formControlName="password" id="password" type="password" placeholder="Minimun 6 characters" [required]="true">
+                    <!-- <div *ngIf="registrationForm.controls.password.errors" class="invalid-feedback"> -->
+                        <!-- <div *ngIf="this.registrationForm.controls.password.errors.required">Password is required</div> -->
+                        <div class="text-danger" *ngIf="this.registrationForm.controls.password.errors?.minlength">Password must be at least 6 characters</div>
+                    <!-- </div> -->
+                </div>
+                <div class="col-md-6"> </div>
+
+            <br>
+            <input class="mx-3 btn btn-sm btn-primary" type="submit" [disabled]="!registrationForm.valid" value="Submit">
+        </div>
+    </form>
+    <div >
+        <button class="btn btn-sm btn-dark mt-3" (click)="navigateBack()">Cancel</button>
+    </div>
+</div>
+
+

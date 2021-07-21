@@ -1,0 +1,30 @@
+/* .back-btn { */
+    /* margin-top: 1rem; */
+    /* text-align: right; */
+/* } */
+
+.item-details {
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+
+.published {
+    color: #afafaf;
+}
+
+.input-text{
+    width: 100%;
+}
+
+.first{
+    display: inline-block;
+}
+
+.home {
+    color: black;
+    font-size: 24px;
+}
+
+.home:hover {
+    text-decoration: none;
+}

@@ -1,0 +1,18 @@
+<div class="container">
+    <div>
+        <form (ngSubmit)="onSubmit()">
+            <label>Enter the email id's to whom the survey should be shared with <span class="text-required">*</span></label>
+            <br>
+            <div>
+                <textarea id="emailid" name="emailid" rows="4" cols="50" name="email" [(ngModel)]="email" required></textarea>
+                <p class="text-danger" *ngIf="this.errorMsg">Please enter valid Emails</p>
+            </div>
+            
+            <br>
+            <p>Please note, enter the email id's with format &lt;<strong>xyz@abc.com</strong>&gt;  
+                and use "<strong>,</strong>" (comma) to seperate email id's and avoid blank spaces. </p>
+            <input class="btn btn-sm btn-primary"  type="submit" value="Publish Survey to Users">
+            <button *ngIf="isAdmin" class="btn btn-sm btn-secondary"  (click)="goToAdmin()">Skip</button>
+         </form>
+    </div>
+</div>

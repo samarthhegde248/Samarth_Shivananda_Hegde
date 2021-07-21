@@ -1,0 +1,64 @@
+<div class="container-fluid first px-5">
+    <a href="/admin" class="float-left mt-3 home"> Survey Management</a>
+    <button class="btn btn-sm btn-dark float-right mt-3" (click)="navigateBack()">Back</button>
+</div>
+<hr>
+<div class="container mt-3">
+    <button class="btn btn-sm btn-outline-secondary mr-3" (click)="exportexcel()">Download Excel</button>
+    <!-- <button class="btn btn-sm btn-outline-secondary"  (click)="downloadPDF()">Download PDF</button> -->
+    <!-- <button class="btn btn-sm btn-dark float-right " (click)="navigateBack()">Back</button> -->
+    <div>
+        <br>
+        <div>
+            <label>Start Date</label>
+            <input class="ml-2" type="date" name="startdate" [(ngModel)]="startdate" required>
+        </div>
+        <div>
+            <label> End Date</label>
+            <input class="ml-2" type="date" name="enddate" [(ngModel)]="enddate" required>
+        </div>
+        <button class="btn btn-sm btn-info" (click)="filter()">Filter</button>
+    </div>
+    <div class="htmlData mt-3" id="htmlData" #htmlData>
+        <table id="excel-table" class="table table-bordered">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">User Name</th>
+                    <th scope="col">Survey Submission Date</th>
+                    <th scope="col">Survey Name</th>
+                    <th scope="col" style="display:none">Question 1</th>
+                    <th scope="col" style="display:none">Answer 1</th>
+                    <th scope="col" style="display:none">Question 2</th>
+                    <th scope="col" style="display:none">Answer 2</th>
+                    <th scope="col" style="display:none">Question 3</th>
+                    <th scope="col" style="display:none">Answer 3</th>
+                    <th scope="col" style="display:none">Question 4</th>
+                    <th scope="col" style="display:none">Answer 4</th>
+                    <th scope="col" style="display:none">Question 5</th>
+                    <th scope="col" style="display:none">Answer 5</th>
+                    <th scope="col" style="display:none">Question 6</th>
+                    <th scope="col" style="display:none">Answer 6</th>
+
+                </tr>
+            </thead>
+            <tr scope="row" *ngFor="let item of displayResponse;">
+                <td>{{item.usermail}}</td>
+                <td>{{item.submitdate | date:'mediumDate'}}</td>
+                <td>{{item.form_title}}</td>
+                <td style="display:none">{{ item.question0 }}</td>
+                <td style="display:none">{{ item.answer0 }}</td>
+                <td style="display:none">{{ item.question1 }}</td>
+                <td style="display:none">{{ item.answer1 }}</td>
+                <td style="display:none">{{ item.question2 }}</td>
+                <td style="display:none">{{ item.answer2 }}</td>
+                <td style="display:none">{{ item.question3 }}</td>
+                <td style="display:none">{{ item.answer3 }}</td>
+                <td style="display:none">{{ item.question4 }}</td>
+                <td style="display:none">{{ item.answer4 }}</td>
+                <td style="display:none">{{ item.question5 }}</td>
+                <td style="display:none">{{ item.answer5 }}</td>
+                
+            </tr>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,53 @@
+<div class="container-fluid first px-5">
+  <a href="/admin" class="float-left mt-3 ml-4 home"> Survey Management</a>
+  <div class="float-right mt-3">
+    <button class="btn btn-sm btn-info  mr-2" [routerLink]="['/usersurvey']">Survey List</button>
+    <button class="btn btn-sm btn-dark " (click)="navigateBack()">Back</button>
+  </div>
+  
+</div>
+
+<hr>
+<div class="container">
+  <!-- <button class="btn btn-sm btn-outline-info m-3" (click)="displaychart()">Chart</button> -->
+  <div *ngIf="displayChart">
+    <div style="display: block">
+      <canvas baseChart
+              [datasets]="barChartData"
+              [labels]="barChartLabels"
+              [options]="barChartOptions"
+              [legend]="barChartLegend"
+              [chartType]="barChartType">
+      </canvas>
+    </div>
+  </div>
+
+<!-- <button class="btn btn-sm btn-outline-info" [routerLink]="['/usersurvey']">Survey List</button> -->
+<!-- <button class="btn btn-sm btn-dark float-right m-3" (click)="navigateBack()">Back</button> -->
+</div>
+
+<div class="container">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">Survey Name</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr scope="row" *ngFor="let item of listOfSurvey;">
+                <th><a class="item-details" href="/surveylistdetails/{{item.form_title}}">{{item.form_title}}</a></th>
+            </tr>
+        </tbody> 
+    </table>
+</div>
+
+  <!-- //Pie Chart
+  <div>
+    <div style="display: block">
+      <canvas baseChart
+              [data]="pieChartData"
+              [labels]="pieChartLabels"
+              [chartType]="pirChartType">
+      </canvas>
+    </div>
+  </div> -->

@@ -1,0 +1,83 @@
+<div class="container-fluid my-login h-100">
+  <div class="row ">
+    <!-- <div class="col-12 col-sm-7 col-md-8 mt-5 login-text"> -->
+    <div class=" col-12 mt-3 login-text">
+      <h1>Welcome to Campaign Management System</h1>
+      <hr>
+    </div>
+    <hr>
+    <!-- <div class="col-12 col-sm-5 col-md-4"> -->
+      <div class="col-md-4"></div>
+    <div class="col-12 col-md-4 mt-5">
+      <div class="login-module">
+        <h2 class="login-text">Login</h2>
+        <form [formGroup]="loginForm" (ngSubmit)="doLogin()">
+          <p class="text-danger" *ngIf="invalidUser">Enter valid Username and Password</p>
+            <div class="login-name">
+              <label for="username" class="login-text">Username: </label>
+            </div>
+            <div>
+              <input formControlName="username" id="username" type="email" required>
+            </div>
+            <div class="login-name">
+              <label for="password" class="login-text">Password: </label>
+            </div> 
+            <div>
+              <input formControlName="password" id="password" type="password" required>
+          </div>
+          <br>
+          <input type="submit" value="Login" class="btn btn-sm btn-primary login-btn">
+        </form>    
+        <br>
+        <p class="login-text">New User? <a routerLink="/registration">Register here!</a></p>
+      </div>
+    </div>
+    <div class="col-md-4">
+    </div>
+  </div>
+  
+  <br>
+
+  <div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-12 col-md-4 mt-5">
+      <div class=" col-12 mt-3 login-text">
+        <h2>Available Forms:-</h2>
+        <hr>
+      </div>
+      <div class="list-group">
+        <a class="list-group-item list-group-item-action" *ngFor="let item of filteredSurveyList; index as i" href="/email/{{item.id}}" >{{item.form_title}}</a>
+      </div>
+    </div>
+    <div class="col-md-4"></div>
+  </div>
+
+</div>
+  <!-- <h1>Welcome to Survey Management System</h1>
+  <br>
+  <div class="login-module">
+    <h2>Login</h2>
+    <form [formGroup]="loginForm" (ngSubmit)="doLogin()">
+      <p class="text-danger" *ngIf="invalidUser">Enter valid Username and Password</p>
+      <div class="row">
+        <div class="col-md-2 col-4 login-name">
+          <label for="username">Username: </label>
+        </div>
+        <div class="col-md-4 col-6">
+          <input formControlName="username" id="username" type="email" required>
+        </div>
+        <div class="col-md-5"> </div>
+        <div class="col-md-2 col-4 login-name">
+          <label for="password">Password: </label>
+        </div>
+        <div class="col-md-4 col-6">
+          <input formControlName="password" id="password" type="password" required>
+        </div>
+      </div> 
+      <input type="submit" value="Login" class="btn btn-sm btn-success">
+    </form>
+  
+  <br>
+  <p>New User? <a routerLink="/registration">Register here!</a></p>
+</div> -->
+<!-- </div> -->

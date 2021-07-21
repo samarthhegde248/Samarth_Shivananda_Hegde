@@ -1,0 +1,109 @@
+<div class="container">
+    <h4 class="form-details mt-3">Form Details</h4>
+    <div class="survey-details">
+        <p> <strong>Survey Name:</strong> {{surveyTitleName}}</p>
+        <p> <strong>Survey Created Date: </strong>{{ creationDate | date:'medium'}} </p>
+        <p> <strong>Number of Responses:</strong> {{ numberOfSurveyResponse }}</p>
+    </div>
+    
+</div>
+
+<div class="m-3">
+    <button class="btn btn-sm btn-secondary" (click)="displaychart()">Display Chart</button>
+</div>
+<div *ngIf ="displayChart" class="chart-wrapper">
+    <canvas baseChart 
+    [data]="pieChartData" 
+    [labels]="pieChartLabels" 
+    [chartType]="pieChartType"
+    [options]="pieChartOptions"
+    [plugins]="pieChartPlugins"
+    [legend]="pieChartLegend"
+    [colors]="chartColors">
+  </canvas>
+</div>
+
+
+<!-- BARCHART TRY -->
+<!-- <div style="width: 80%;">
+    <div *ngIf ="displayChart" class="chart-wrapper" style="display: block">
+        <canvas baseChart
+                [datasets]="barChartData"
+                [labels]="mbarChartLabels"
+                [options]="barChartOptions"
+                [colors]="barChartColors"
+                [legend]="barChartLegend"
+                [chartType]="barChartType"
+                (chartHover)="chartHovered($event)"
+                (chartClick)="chartClicked($event)"></canvas>
+      </div>
+</div> -->
+
+
+<!-- BARCHART TRY END -->
+
+<!-- <div *ngIf ="displayChart" class="chart-wrapper">
+    <canvas baseChart 
+    [datasets]="barChartData"
+    [labels]="barChartLabels"
+    [options]="barChartOptions"
+    [plugins]="barChartPlugins"
+    [legend]="barChartLegend"
+    [chartType]="barChartType">
+  </canvas>
+</div> -->
+
+
+<!-- table -->
+<div class="container">
+    <button class="btn btn-sm btn-outline-secondary mr-3" (click)="exportexcel()">Download Excel</button>
+    <button class="btn btn-sm btn-outline-secondary"  (click)="downloadPDF()">Download PDF</button>
+    <div class="htmlData mt-3" id="htmlData" #htmlData>
+        <table id="excel-table" class="table table-bordered">
+            <!-- <th>{{this.surveyTitleName}}</th> -->
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">User Name</th>
+                    <th scope="col">Survey Submission Date</th>
+                    <!-- <th scope="col">Survey Name</th> -->
+                    <th scope="col" style="display:none">Question 1</th>
+                    <th scope="col" style="display:none">Answer 1</th>
+                    <th scope="col" style="display:none">Question 2</th>
+                    <th scope="col" style="display:none">Answer 2</th>
+                    <th scope="col" style="display:none">Question 3</th>
+                    <th scope="col" style="display:none">Answer 3</th>
+                    <th scope="col" style="display:none">Question 4</th>
+                    <th scope="col" style="display:none">Answer 4</th>
+                    <th scope="col" style="display:none">Question 5</th>
+                    <th scope="col" style="display:none">Answer 5</th>
+                    <th scope="col" style="display:none">Question 6</th>
+                    <th scope="col" style="display:none">Answer 6</th>
+    
+                </tr>
+            </thead>
+            <tr scope="row" *ngFor="let item of dataForTable;">
+                <td>{{item.usermail}}</td>
+                <td>{{item.submitdate | date:'mediumDate'}}</td>
+                <!-- <td>{{item.form_title}}</td> -->
+                <td style="display:none">{{ item.question0 }}</td>
+                <td style="display:none">{{ item.answer0 }}</td>
+                <td style="display:none">{{ item.question1 }}</td>
+                <td style="display:none">{{ item.answer1 }}</td>
+                <td style="display:none">{{ item.question2 }}</td>
+                <td style="display:none">{{ item.answer2 }}</td>
+                <td style="display:none">{{ item.question3 }}</td>
+                <td style="display:none">{{ item.answer3 }}</td>
+                <td style="display:none">{{ item.question4 }}</td>
+                <td style="display:none">{{ item.answer4 }}</td>
+                <td style="display:none">{{ item.question5 }}</td>
+                <td style="display:none">{{ item.answer5 }}</td>
+                
+            </tr>
+        </table>
+    </div>
+</div>
+
+<!-- table -->
+<div class="m-3">
+    <button class="btn btn-sm btn-dark mt-2" (click)="navigateBack()">Back</button>
+</div>

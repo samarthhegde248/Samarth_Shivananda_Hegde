@@ -1,0 +1,32 @@
+.first-block{
+    display: inline-block;
+    width: 100%;
+}
+
+/* .home{
+    margin-left: 3rem;
+    margin-top: 1rem;
+    color: black;
+} */
+
+.back-btn{
+    /* text-align: right !important; */
+    float:right;
+}
+
+hr {
+    border-top: 2px solid lightgray;
+}
+
+.first{
+    display: inline-block;
+}
+
+.home {
+    color: black;
+    font-size: 24px;
+}
+
+.home:hover {
+    text-decoration: none;
+}
