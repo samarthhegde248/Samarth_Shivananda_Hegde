@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<form method="POST">
+	{% csrf_token %}
+	<label>Name:</label><br>
+	<input type="text" name="name"><br>
+	<label>Course:</label><br>
+	<input type="text" name="course"><br>
+	<label>Completion Date:</label><br>
+	<input type="date" name="completiondate"><br>
+	<label>Date of joining:</label><br>
+	<input type="date" name="datejoining"><br>
+	<label>Course fee:</label><br>
+	<input type="number" name="coursefee"><br>
+	<label>Instructor:</label><br>
+	<input type="text" name="instructor"><br>
+	<label>Aadhar number:</label><br>
+	<input type="number" name="aadhar"><br>
+	<label>Mobile:</label><br>
+	<input type="tel" name="mobile"><br>
+	<label>Email:</label><br>
+	<input type="email" name="email"><br>
+	<label>Source:</label><br>
+	<input type="text" name="source"><br>
+	<label>Remark:</label><br>
+	<input type="text" name="remark"><br>
+	<input type="submit" name="">
+</form>
+
+{% endblock %}

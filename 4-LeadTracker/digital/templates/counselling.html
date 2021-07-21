@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Counselling</h1>
+<form method="POST">
+		{% csrf_token %}
+		<label>Course:</label><br>
+		<input type="text" name="course"><br>
+		<label>Demo Date:</label><br>
+		<input type="date" name="demodate">
+		<input type="submit" name="">
+	</form>
+	{% if queryset%}
+		<table>
+			<thead>
+				<th>ID</th>
+				<th>Name</th>
+				<th>Mobile</th>
+				<th>Email</th>
+				<th>Course</th>
+				<th>Source</th>
+				<th>LeadStatus</th>
+				<th>DemoDate</th>
+				<th>Counsler</th>
+				<th>Remarks</th>
+				<th>Status</th>
+			</thead>
+			<tbody>
+				{% for i in queryset %}
+				{% if i.status == 'willing' %}
+				<tr>
+					<td>{{i.id}}</td>
+					<td>{{i.name}}</td>
+					<td>{{i.mobile}}</td>
+					<td>{{i.email}}</td>
+					<td>{{i.course}}</td>
+					<td>{{i.source}}</td>
+					<td>{{i.leadstatus}}</td>
+					<td>{{i.demodate}}</td>
+					<td>{{i.counsler}}</td>
+					<td>{{i.remarks}}</td>
+					<td>
+						<button><a href="{% url 'joinings' i.id %}">Join</a></button>
+						<button><a href="{% url 'willing' i.id %}">Willing</a></button>
+						<button><a href="{% url 'dead' i.id %}">Dead</a></button>
+					</td>
+				</tr>
+				{% elif i.status == 'joined' %}
+				<tr>
+					<td>{{i.id}}</td>
+					<td>{{i.name}}</td>
+					<td>{{i.mobile}}</td>
+					<td>{{i.email}}</td>
+					<td>{{i.course}}</td>
+					<td>{{i.source}}</td>
+					<td>{{i.leadstatus}}</td>
+					<td>{{i.demodate}}</td>
+					<td>{{i.counsler}}</td>
+					<td>{{i.remarks}}</td>
+					<td>Joined Already!</td>
+				</tr>
+				{% endif %}
+				{% endfor %}
+			</tbody>
+		</table>
+	{% endif %}
+{% endblock %}

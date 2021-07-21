@@ -1,0 +1,17 @@
+-> pip install virtualenv
+-> windows: python -m virtualenv leadtrackerenv
+-> leadtrackerenv\Scripts\activate
+
+-> Create DB in MySql with the name 'leaddb'
+-> pip install -r requirements.txt
+
+-> python manage.py makemigrations
+-> python manage.py migrate
+-> python manage.py runserver
+
+-> localhost:8000/
+-> admin: samarth	password: Admin@123
+
+
+-> leadtrackerenv\Scripts\deactivate
+

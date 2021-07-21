@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+	<form method="POST">
+		{% csrf_token %}
+		<h1>Update</h1>
+		<label>Name:</label><br>
+		<input type="text" name="name" value="{{willer.name}}"><br>
+		<label>Willing date:</label><br>
+		<input type="date" name="willdate" value="{{willer.demodate}}"><br>
+		<input type="submit" name="">
+	</form>
+
+{% endblock %}

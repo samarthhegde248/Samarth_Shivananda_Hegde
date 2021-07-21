@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Callings</h1>
+<form method="POST">
+		{% csrf_token %}
+		<label>Lead Status:</label><br>
+		<input type="text" name="leadstatus"><br>
+		<label>Demo Date:</label><br>
+		<input type="date" name="demodate">
+		<input type="submit" name="">
+	</form>
+	{% if queryset %}
+		<table>
+			<thead>
+				<th>ID</th>
+				<th>Name</th>
+				<th>Mobile</th>
+				<th>Email</th>
+				<th>Course</th>
+				<th>Source</th>
+				<th>LeadStatus</th>
+				<th>DemoDate</th>
+				<th>Counsler</th>
+				<th>Remarks</th>
+			</thead>
+			<tbody>
+				{% for i in queryset %}
+				<tr>
+					<td>{{i.id}}</td>
+					<td>{{i.name}}</td>
+					<td>{{i.mobile}}</td>
+					<td>{{i.email}}</td>
+					<td>{{i.course}}</td>
+					<td>{{i.source}}</td>
+					<td>{{i.leadstatus}}</td>
+					<td>{{i.demodate}}</td>
+					<td>{{i.counsler}}</td>
+					<td>{{i.remarks}}</td>
+				</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+	{% endif %}
+{% endblock %}

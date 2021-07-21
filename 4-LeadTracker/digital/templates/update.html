@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+	<form method="POST">
+		{% csrf_token %}
+		<label>Name:</label><br>
+		<input type="text" value="{{rjstudent.email.name}}"><br>
+		<label>Completion Date:</label><br>
+		<input type="date" name="completiondate">
+		<input type="submit" name="">
+	</form>
+
+{% endblock %}

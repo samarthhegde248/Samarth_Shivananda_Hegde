@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% csrf_token %}
+<form method="POST">
+	{% csrf_token %}
+	<label>Name:</label><br>
+	<input type="text" name="name"><br>
+	<label>Mobile:</label><br>
+	<input type="tel" name="mobile"><br>
+	<label>Email:</label><br>
+	<input type="email" name="email"><br>
+	<label>Course:</label><br>
+	<input type="text" name="course"><br>
+	<label>Source:</label><br>
+	<input type="text" name="source"><br>
+	<label>Lead status:</label><br>
+	<input type="text" name="leadstatus"><br>
+	<label>Demo Date:</label><br>
+	<input type="date" name="demodate"><br>
+	<label>Counsler:</label><br>
+	<input type="text" name="counsler"><br>
+	<label>Remark:</label><br>
+	<input type="text" name="remarks"><br>
+	<input type="submit" name="">
+</form>
+{% endblock %}

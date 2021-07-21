@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Lead Tracker</title>
+</head>
+<body>
+	<nav>
+		<ul>
+			<li><a href="{% url 'home' %}">home</a></li>
+			<li><a href="{% url 'register' %}">Register</a></li>
+			<li><a href="{% url 'walkins' %}">Walkins</a></li>
+			<li><a href="{% url 'callings' %}">Calling</a></li>
+			<li><a href="{% url 'counselling' %}">Counselling</a></li>
+			<li><a href="{% url 'joining' %}">joining</a></li>
+			<li><a href="{% url 'students' %}">students</a></li>
+			<li><a href="{% url 'currentstatus' %}">Current status</a></li>
+		</ul>
+	</nav>
+	<div>
+		{% block content %}
+		<h1>Welcome to our page</h1>
+		{% endblock %}
+	</div>
+</body>
+</html>

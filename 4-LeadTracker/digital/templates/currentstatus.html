@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<table>
+	<thead>
+		<th>ID</th>
+		<th>Name</th>
+		<th>Mobile</th>
+		<th>Email</th>
+		<th>Course</th>
+		<th>Completion</th>
+		<th>Date of joining</th>
+		<th>Complete</th>
+		<th>Delay</th>
+		<th>Dead</th>
+	</thead>
+	<tbody>
+		{% for i in student %}
+		<tr>
+			<td>{{i.id}}</td>
+			<td>{{i.email.name}}</td>
+			<td>{{i.email.mobile}}</td>
+			<td>{{i.email.email}}</td>
+			<td>{{i.email.course}}</td>
+			<td>{{i.completiondate}}</td>
+			<td>{{i.datejoining}}</td>
+			<td><button><a href="{% url 'complete' i.id %}">Complete</a></button></td>
+			<td><button><a href="{% url 'update' i.id %}">Delay</a></button></td>
+			<td><button><a href="{% url 'stopped' i.id %}">Dead</a></button></td>
+		</tr>
+		{% endfor %}
+	</tbody>
+{% endblock %}
