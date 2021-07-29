@@ -12,7 +12,7 @@ import { Location } from '@angular/common';
 export class RegistrationComponent implements OnInit {
   // registrationForm: FormGroup;
   checkEmail = false;
-  userRole;
+  userRole = '';
 
   constructor(private LoginService: LoginuserService,
         private router: Router,
