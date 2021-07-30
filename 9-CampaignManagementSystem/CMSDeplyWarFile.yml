@@ -1,0 +1,29 @@
+- hosts: localhost
+#  become: yes
+  tasks:
+  - name: Create installation folder
+    file:
+      path: "{{ ansible_user_dir }}/CMS_Application"
+      state: directory
+
+#  - name: Install OpenJDK
+#    yum:
+#      name: java-11-openjdk
+
+  # - name: download tomcat server
+  #   get_url:
+  #     url: https://archive.apache.org/dist/tomcat/tomcat-9/v9.0.46/bin/apache-tomcat-9.0.46.tar.gz
+  #     dest: "{{ ansible_user_dir }}/WebApp"
+
+  # - name: extraxt tomcat packages
+  #   unarchive:
+  #     src: "{{ ansible_user_dir }}/WebApp/apache-tomcat-9.0.46.tar.gz"
+  #     dest: "{{ ansible_user_dir }}/WebApp/"
+  #     remote_src: True
+  - name: moving jar file to target server
+    copy:
+      src: /var/lib/jenkins/workspace/CampaignManagementSystem/9-CampaignManagementSystem/Backend/target/target/Capstone-Backend-1.0-SNAPSHOT.jar
+      dest: "{{ ansible_user_dir }}/CMS_Application"
+
+  - name: starting the application
+    shell: "java -jar {{ ansible_user_dir }}/CMS_Application/Capstone-Backend-1.0-SNAPSHOT.jar"
