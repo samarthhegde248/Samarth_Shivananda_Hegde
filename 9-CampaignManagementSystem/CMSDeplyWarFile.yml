@@ -22,7 +22,7 @@
   #     remote_src: True
   - name: moving jar file to target server
     copy:
-      src: /var/lib/jenkins/workspace/CampaignManagementSystem/9-CampaignManagementSystem/Backend/target/target/Capstone-Backend-1.0-SNAPSHOT.jar
+      src: /var/lib/jenkins/workspace/CampaignManagementSystem/9-CampaignManagementSystem/Backend/target/Capstone-Backend-1.0-SNAPSHOT.jar
       dest: "{{ ansible_user_dir }}/CMS_Application"
 
   - name: starting the application
