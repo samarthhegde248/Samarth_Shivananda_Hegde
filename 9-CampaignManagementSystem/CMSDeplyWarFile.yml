@@ -26,4 +26,4 @@
       dest: "{{ ansible_user_dir }}/CMS_Application"
 
   - name: starting the application
-    shell: "java -jar {{ ansible_user_dir }}/CMS_Application/Capstone-Backend-1.0-SNAPSHOT.jar"
+    shell: "java -Dserver.port=8088 -jar {{ ansible_user_dir }}/CMS_Application/Capstone-Backend-1.0-SNAPSHOT.jar"
