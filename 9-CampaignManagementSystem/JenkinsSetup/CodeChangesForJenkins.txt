@@ -1,0 +1,15 @@
+Requirement:
+	from jenkins user maven, angular, mysql should be working
+	Jfrog artifactory should be installed on the machine
+	jspdf of angular will not work for angular version 10 and above
+
+Create 'mysql' user and give privileges to mysql user in mysql-server(this should work as any user $mysql -u mysql -p)
+	
+
+Change in Samarth_Shivananda_Hegde\9-CampaignManagementSystem\Backend\src\main\resources\application.properties
+	spring.datasource.username=mysql
+	spring.datasource.password=
+
+Change in Samarth_Shivananda_Hegde\9-CampaignManagementSystem\Project\capstone-frontend\src\app\loginuser.service.ts
+	private baseUrl = 'http://192.168.10.41:8088/api/';
+

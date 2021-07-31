@@ -10,7 +10,7 @@ import { SurveyInfo } from './model/userdata';
   providedIn: 'root'
 })
 export class LoginuserService {
-  private baseUrl = 'http://192.168.10.41:8088/api/';
+  private baseUrl = 'http://localhost:8080/api/';
 
   constructor(private http: HttpClient) { }
 
