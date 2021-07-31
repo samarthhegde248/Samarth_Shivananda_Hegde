@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: com.Capstone.Backend.CapstoneBackendApplicationTests
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 11.241 s - in com.Capstone.Backend.CapstoneBackendApplicationTests
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 11.482 s - in com.Capstone.Backend.CapstoneBackendApplicationTests
