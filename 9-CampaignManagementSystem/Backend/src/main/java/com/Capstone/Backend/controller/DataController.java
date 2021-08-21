@@ -81,7 +81,7 @@ public class DataController {
 	@ResponseBody
 	public UserData doRegistration(@RequestBody UserRegistrationBean theNewUser) {
 		System.out.println("In Registration : " + theNewUser);
-		registrationEmail(theNewUser.getEmail());
+		// registrationEmail(theNewUser.getEmail());
 		return userServiceImpl.save(theNewUser);
 	}
 	
