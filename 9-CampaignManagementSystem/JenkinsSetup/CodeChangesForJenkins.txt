@@ -13,3 +13,5 @@ Change in Samarth_Shivananda_Hegde\9-CampaignManagementSystem\Backend\src\main\r
 Change in Samarth_Shivananda_Hegde\9-CampaignManagementSystem\Project\capstone-frontend\src\app\loginuser.service.ts
 	private baseUrl = 'http://192.168.10.41:8088/api/';
 
+To run Jfrog
+sudo $JFROG_HOME/artifactory/app/bin/artifactoryctl start

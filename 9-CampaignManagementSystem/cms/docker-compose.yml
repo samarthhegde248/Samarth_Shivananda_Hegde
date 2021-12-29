@@ -1,0 +1,40 @@
+version: "3.8"
+
+service:
+  cmsdb:
+    image: mysql:latest
+    mem_limit: 700m
+    ports:
+      - "3312:3312"
+    volumes:
+      - ./database_image/capstone.sql:/docker-entrypoint-initdb.d
+    environment:
+      - MYSQL_ROOT_PASSWORD=toor
+      - MYSQL_DATABASE=capstone
+      - MYSQL_USER=root
+      - MYSQL_USER_PASSWORD=toor
+    networks:
+      - cms-net
+
+  cmsapp:
+    image: cms_mvn_jdk:11
+    mem_limit: 700m
+    ports:
+      - "9100:8080"
+    environment:
+      cmsdb: cmsdb
+      cmsdb_uname: root
+      cmsdb_upass: toor
+      SERVER_PORT: 8080
+      cmsdb_port: 3311
+      cmsdb_name: capstone
+    networks:
+      - cms-net
+    depends_on:
+      - cmsdb
+    deploy:
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+        window: 120s

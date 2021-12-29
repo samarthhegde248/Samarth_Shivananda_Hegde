@@ -1,0 +1,13 @@
+Docker:
+
+$docker network create cms-net
+
+-> Navigate to Dockerfile of mysql $cd database_image
+$docker build -t cms-mysql-db:latest
+$docker run -d --net cms-net -p 3313:3306 --name cms-mysql-db:latest
+http://IP-ADDRESS:3313/capstone
+
+-> navigate to Dockerfile of CMSApp
+$docker build -t cms_mvn-jdk:11
+$docker run -d --net cms-net -p 8099:8080 --name cms_mvn-jdk:11
+http://IP-ADDRESS:8099/
